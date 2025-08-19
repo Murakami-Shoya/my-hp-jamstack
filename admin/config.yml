@@ -1,0 +1,17 @@
+backend:
+  name: git-gateway
+  branch: main # メインブランチ名
+  repo: git@github.com:Murakami-Shoya/my-hp-jamstack.git
+
+media_folder: "images/uploads" # 画像アップロード先
+
+collections:
+  - name: "blog" # コレクション名
+    label: "ブログ" # 管理画面での表示名
+    folder: "posts" # 記事の保存先フォルダ
+    create: true # 新規作成を許可
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # ファイル名
+    fields: # 記事の入力項目
+      - {label: "タイトル", name: "title", widget: "string"}
+      - {label: "公開日", name: "date", widget: "datetime"}
+      - {label: "本文", name: "body", widget: "markdown"}
